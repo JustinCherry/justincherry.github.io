@@ -20,9 +20,9 @@
       </ul>
    </div>
    <div id="right_side">
-	<h2><i>Data Source:</i></h2>
+	<!--<h2><i>Data Source:</i></h2>-->
 	<p>	
-		<a href="https://flunky.github.io/cars2017.csv" target="_blank">https://flunky.github.io/cars2017.csv</a>
+		<!--<a href="https://flunky.github.io/cars2017.csv" target="_blank">https://flunky.github.io/cars2017.csv</a> -->
 	</p>
 
    </div>
@@ -49,6 +49,7 @@
         var color = ['green', 'yellow', 'red'];
         var pie = d3.pie();
         var arc = d3.arc().innerRadius(0).outerRadius(100);
+
             d3.select("svg")
                 .append("g")
                     .attr("transform","translate(350,150)") 
@@ -57,14 +58,9 @@
                     .enter()
                     .append("path")
                        .attr("d",arc)
+                       .transition().duration(5000)
                        .attr("fill", function(d,i){return color[i];});
-
-            d3.select("svg")
-                .append("text")
-                    .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
-                    .text(function(d) { return d.type;})
-                    .text("test")
-                    .style("fill", "#fff");                  
+             
         </script>
 
         <svg width=300 height=300 id="svg3"></svg>

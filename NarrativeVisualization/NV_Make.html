@@ -20,9 +20,9 @@
       </ul>
    </div>
    <div id="right_side">
-	<h2><i>Data Source:</i></h2>
+	<!--<h2><i>Data Source:</i></h2>-->
 	<p>	
-		<a href="https://flunky.github.io/cars2017.csv" target="_blank">https://flunky.github.io/cars2017.csv</a>
+		<!--<a href="https://flunky.github.io/cars2017.csv" target="_blank">https://flunky.github.io/cars2017.csv</a>-->
 	</p>
 
    </div>
@@ -58,11 +58,12 @@
               .enter()
               .append('rect')
                 .attr('x',150)
+                .attr('height',15)              
                 .attr('y',function(d,i) {return ys1(i);})
-                .attr('width',function(d,i) {return xs1(d);})
-                .attr('height',15)
+                .transition().duration(5000)
+                .attr('width',function(d,i) {return xs1(d);})              
                 //.style('fill',function(d,i) {return cs1(d);});
-                .style('fill', "grey");
+                .style('fill', "blue");
 
             testName = ["Acura", "Alfa Romero", "Aston Martin", "Audi", "Bentley", "BMW", "Buick", "Cadillac", "Chevrolet", "Chrysler", "Dodge", "Ferrari", "Fiat", "Ford", "Genesis"]
             d3.select('#svg1')
@@ -96,10 +97,11 @@
               .append('rect')
                 .attr('x',175)
                 .attr('y',function(d,i) {return ys1(i);})
+                .transition().duration(5000)
                 .attr('width',function(d,i) {return xs1(d);})
                 .attr('height',15)
                 //.style('fill',function(d,i) {return cs1(d);});
-                .style('fill', "grey");
+                .style('fill', "blue");
 
             testName = ["GMC", "Honda", "Hyundai", "Infinity", "Jaguar", "Jeep", "Kia", "Lamborghini", "Land Rover", "Lexus", "Lincoln", "Lotus", "Maserati", "Mazda", "McLaren Auto"]
             d3.select('#svg2')
@@ -134,9 +136,10 @@
               .append('rect')
                 .attr('x',180)
                 .attr('y',function(d,i) {return ys1(i);})
+                .transition().duration(5000)
                 .attr('width',function(d,i) {return xs1(d);})
                 .attr('height',15)
-                .style('fill', "grey");
+                .style('fill', "blue");
 
             testName = ["Mercedes-Benz", "MINI", "Mitsubishi", "Nissan", "Porsche", "Ram", "Rolls-Royce", "Roush Prfmnce", "smart", "Subaru", "Tesla", "Toyota", "Volkswagen", "Volvo"]
             d3.select('#svg3')
