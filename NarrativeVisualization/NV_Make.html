@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+	 <title>wcherry2</title>
+	 <link href="JustinCherry.css" rel="stylesheet" type="text/css" />
+	 
+</head>
+
+<body>
+	<h1><i>Factors When Choosing A Vehicle</i></h1>
+   <div id="left_side">
+      <ul>
+          <li><a href="wcherry2_NV_Intro.htm">Introduction</a></li>
+         <li><a href="../assignment 6/JustinCherryWork.htm">Factor 1: Vehicle Make</a></li>
+         <li><a href="../assignment 6/JustinCherrySchool.htm">Factor 2: Fuel Type</a></li>
+		 <li><a href="../assignment 6/JustinCherryOtherInterests.htm">Factor 3: MPG</a></li>
+      </ul>
+   </div>
+   <div id="right_side">
+	<h2><i>Data Source:</i></h2>
+	<p>	
+		<a href="https://flunky.github.io/cars2017.csv" target="_blank">https://flunky.github.io/cars2017.csv</a>
+	</p>
+
+   </div>
+   <div id="center">
+		<h3>Factor 1: Make</h3>
+		<p>
+		<i><b>The Problem:</b></i>
+		</p>
+		<p>
+			There are many different car manufacturers out there. 
+            You're probably aware of the bigger ones, but it's tough to 
+            know weather the vehicle you have in mind is a popular choice. 
+		</p>
+        <i><b>The Solution:</b></i>
+        <p>Makes of vehicles and their relative options according to number of models offered:</p>
+        <p>
+            <svg width=250 height=500 id = "svg1"></svg>
+            <script src='https://d3js.org/d3.v5.min.js'></script>
+            <script>
+            xdomain1 = [0,10];//range of x values being used
+            xrange1 = [0,100]; //desired final pixel width
+            ydomain1 = [0,14]; //number of elements in range for this example(-1)
+            yrange1 = [50,350]; //desired pixel heights
+            cdomain1 = [0,10]; //range of values being used
+            crange1 = ["purple","red"];
+            xs1 = d3.scaleLinear().domain(xdomain1).range(xrange1);
+            ys1 = d3.scaleLinear().domain(ydomain1).range(yrange1);
+            cs1 = d3.scaleLinear().domain(cdomain1).range(crange1);
+            d3.select('#svg1')
+              .selectAll('rect')
+//.data([2,2,1,5,2,9,3,6,7,3,5,2,3,8,3,4,3,3,4,4,6,4,2,4,5,2,1,2,2,1,5,1,4,6,3,3,1,1,3,1,4,3,2]
+              .data([2,2,1,5,2,9,3,6,7,3,5,2,3,8,3])
+              .enter()
+              .append('rect')
+                .attr('x',150)
+                .attr('y',function(d,i) {return ys1(i);})
+                .attr('width',function(d,i) {return xs1(d);})
+                .attr('height',15)
+                //.style('fill',function(d,i) {return cs1(d);});
+                .style('fill', "grey");
+
+            testName = ["Acura", "Alfa Romero", "Aston Martin", "Audi", "Bentley", "BMW", "Buick", "Cadillac", "Chevrolet", "Chrysler", "Dodge", "Ferrari", "Fiat", "Ford", "Genesis"]
+            d3.select('#svg1')
+                .selectAll('text')
+                .data(testName)
+                .enter()
+                .append('text')
+                .attr('x', 35)
+                .attr('y',function(d,i) {return ys1(i)+10;})
+                .text(function(d) { return d; })
+                .attr('font-size', 18)
+                .attr('text-anchor', 'begin');
+            </script>
+
+            <svg width=250 height=500 id="svg2"></svg>
+            <script src='https://d3js.org/d3.v5.min.js'></script>
+            <script>
+            xdomain1 = [0,10];//range of x values being used
+            xrange1 = [0,100]; //desired final pixel width
+            ydomain1 = [0,14]; //number of elements in range for this example(-1)
+            yrange1 = [50,350]; //desired pixel heights
+            cdomain1 = [0,10]; //range of values being used
+            crange1 = ["purple","red"];
+            xs1 = d3.scaleLinear().domain(xdomain1).range(xrange1);
+            ys1 = d3.scaleLinear().domain(ydomain1).range(yrange1);
+            cs1 = d3.scaleLinear().domain(cdomain1).range(crange1);
+            d3.select('#svg2')
+              .selectAll('rect')
+              .data([4,3,3,4,4,6,4,2,4,5,2,1,2,2,1])
+              .enter()
+              .append('rect')
+                .attr('x',175)
+                .attr('y',function(d,i) {return ys1(i);})
+                .attr('width',function(d,i) {return xs1(d);})
+                .attr('height',15)
+                //.style('fill',function(d,i) {return cs1(d);});
+                .style('fill', "grey");
+
+            testName = ["GMC", "Honda", "Hyundai", "Infinity", "Jaguar", "Jeep", "Kia", "Lamborghini", "Land Rover", "Lexus", "Lincoln", "Lotus", "Maserati", "Mazda", "McLaren Auto"]
+            d3.select('#svg2')
+                .selectAll('text')
+                .data(testName)
+                .enter()
+                .append('text')
+                .attr('x', 35)
+                .attr('y',function(d,i) {return ys1(i)+10;})
+                .text(function(d) { return d; })
+                .attr('font-size', 18)
+                .attr('text-anchor', 'begin');
+            </script>
+
+            <svg width=300 height=500 id="svg3"></svg>
+            <script src='https://d3js.org/d3.v5.min.js'></script>
+            <script>
+            xdomain1 = [0,10];//range of x values being used
+            xrange1 = [0,100]; //desired final pixel width
+            ydomain1 = [0,13]; //number of elements in range for this example(-1)
+            yrange1 = [50,350]; //desired pixel heights
+            cdomain1 = [0,10]; //range of values being used
+            crange1 = ["purple","pink"];
+            
+            xs1 = d3.scaleLinear().domain(xdomain1).range(xrange1);
+            ys1 = d3.scaleLinear().domain(ydomain1).range(yrange1);
+            cs1 = d3.scaleLinear().domain(cdomain1).range(crange1);
+            d3.select('#svg3')
+              .selectAll('rect')
+              .data([5,1,4,6,3,3,1,1,1,3,1,4,3,2])
+              .enter()
+              .append('rect')
+                .attr('x',225)
+                .attr('y',function(d,i) {return ys1(i);})
+                .attr('width',function(d,i) {return xs1(d);})
+                .attr('height',15)
+                .style('fill', "grey");
+
+            testName = ["Mercedes-Benz", "MINI", "Mitsubishi", "Nissan", "Porsche", "Ram", "Rolls-Royce", "Roush Performance", "smart", "Subaru", "Tesla", "Toyota", "Volkswagen", "Volvo"]
+            d3.select('#svg3')
+                .selectAll('text')
+                .data(testName)
+                .enter()
+                .append('text')
+                .attr('x', 35)
+                .attr('y',function(d,i) {return ys1(i)+10;})
+                .text(function(d) { return d; })
+                .attr('font-size', 18)
+                .attr('text-anchor', 'begin');
+            </script>
+
+
+        </p>
+    </div>
+
+</body>
+
+</html>

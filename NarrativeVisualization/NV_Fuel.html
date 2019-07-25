@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+	 <title>wcherry2</title>
+	 <link href="JustinCherry.css" rel="stylesheet" type="text/css" />
+	 
+</head>
+
+<body>
+	<h1><i>Factors When Choosing A Vehicle</i></h1>
+   <div id="left_side">
+      <ul>
+          <li><a href="wcherry2_NV_Intro.htm">Introduction</a></li>
+         <li><a href="../assignment 6/JustinCherryWork.htm">Factor 1: Vehicle Make</a></li>
+         <li><a href="../assignment 6/JustinCherrySchool.htm">Factor 2: Fuel Type</a></li>
+		 <li><a href="../assignment 6/JustinCherryOtherInterests.htm">Factor 3: MPG</a></li>
+      </ul>
+   </div>
+   <div id="right_side">
+	<h2><i>Data Source:</i></h2>
+	<p>	
+		<a href="https://flunky.github.io/cars2017.csv" target="_blank">https://flunky.github.io/cars2017.csv</a>
+	</p>
+
+   </div>
+   <div id="center">
+		<h3>Factor 2: Fuel Type</h3>
+		<p>
+		<i><b>The Problem:</b></i>
+		</p>
+		<p>
+			Once you have a vehicle's make in mind, the next factor to consider is Fuel Type. It can be hard to know 
+            which to choose. Gasoline? Diesel? Electric? It may largely depend on the particular use you have in mind
+            for your vehicle, but what types are available? What fuel types do car manufacturers produce?
+		</p>
+        <i><b>The Solution:</b></i>
+		<p>
+			A distribution of Gas, Electricity and Diesel options provided
+		</p>
+        <script src='https://d3js.org/d3.v5.min.js'></script>
+        <svg width=450 height=300>
+        </svg>
+        <script>
+        var data = [6,10,130];
+        var type = ["Electric", "Diesel", "Gasoline"];
+        var color = ['green', 'yellow', 'red'];
+        var pie = d3.pie();
+        var arc = d3.arc().innerRadius(0).outerRadius(100);
+            d3.select("svg")
+                .append("g")
+                    .attr("transform","translate(350,150)") 
+                    .selectAll("path")
+                    .data(pie(data))
+                    .enter()
+                    .append("path")
+                       .attr("d",arc)
+                       .attr("fill", function(d,i){return color[i];});
+
+            d3.select("svg")
+                .append("text")
+                    .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+                    .text(function(d) { return d.type;})
+                    .text("test")
+                    .style("fill", "#fff");                  
+        </script>
+
+        <svg width=300 height=300 id="svg3"></svg>
+            <script src='https://d3js.org/d3.v5.min.js'></script>
+            <script>
+            xdomain1 = [0,10];//range of x values being used
+            xrange1 = [0,100]; //desired final pixel width
+            ydomain1 = [0,13]; //number of elements in range for this example(-1)
+            yrange1 = [50,350]; //desired pixel heights
+            cdomain1 = [0,10]; //range of values being used
+//            crange1 = ["purple","pink"];
+            
+            xs1 = d3.scaleLinear().domain(xdomain1).range(xrange1);
+            ys1 = d3.scaleLinear().domain(ydomain1).range(yrange1);
+ //           cs1 = d3.scaleLinear().domain(cdomain1).range(color);
+            d3.select('#svg3')
+              .selectAll('rect')
+              .data(data)
+              .enter()
+              .append('rect')
+                .attr('x',125)
+                .attr('y',function(d,i) {return ys1(i);})
+                .attr('width',15)
+                .attr('height',15)
+                //.style('fill',function(d,i) {return color(d);})
+                .attr("fill", function(d,i){return color[i];});
+                //.style('fill', "grey");
+
+            d3.select('#svg3')
+                .selectAll('text')
+                .data(type)
+                .enter()
+                .append('text')
+                .attr('x', 35)
+                .attr('y',function(d,i) {return ys1(i)+10;})
+                .text(function(d) { return d; })
+                .attr('font-size', 18)
+                .attr('text-anchor', 'begin');
+            </script>
+
+   </div>
+
+</body>
+</html>

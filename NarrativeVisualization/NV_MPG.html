@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+	 <title>wcherry2</title>
+	 <link href="JustinCherry.css" rel="stylesheet" type="text/css" />
+	 
+</head>
+
+<body>
+	<h1><i>Factors When Choosing A Vehicle</i></h1>
+   <div id="left_side">
+      <ul>
+          <li><a href="wcherry2_NV_Intro.htm">Introduction</a></li>
+         <li><a href="../assignment 6/JustinCherryWork.htm">Factor 1: Vehicle Make</a></li>
+         <li><a href="../assignment 6/JustinCherrySchool.htm">Factor 2: Fuel Type</a></li>
+		 <li><a href="../assignment 6/JustinCherryOtherInterests.htm">Factor 3: MPG</a></li>
+      </ul>
+   </div>
+   <div id="right_side">
+	<h2><i>Data Source:</i></h2>
+	<p>	
+		<a href="https://flunky.github.io/cars2017.csv" target="_blank">https://flunky.github.io/cars2017.csv</a>
+	</p>
+
+   </div>
+   <div id="center">
+		<h3>Factor 3: Miles Per Gallon</h3>
+		<p>
+		<i><b>The Problem:</b></i>
+		</p>
+		<p>
+			Now that you have a better idea on what's available in the market, how do these vehicles perform? 
+            What can you expect to have as gas mileage for both city driving as well as highway driving? How can 
+            you know how your future car will perform?
+		</p>
+        <i><b>The Solution:</b></i>
+		<p>
+			A scatter plot of average MPG vs Highway MPG
+		</p>
+        <script src='https://d3js.org/d3.v5.min.js'></script>
+        <style> circle {fill: lightblue; stroke: black;} </style>
+        <body onload='init()'>
+        <svg width=800 height=600>
+        </svg>
+        <script>
+        async function init() {
+
+                    const data = await d3.csv('https://flunky.github.io/cars2017.csv');
+                    //console.log(data);
+
+                    y = d3.scaleLog().base(2).domain([10,150]).range([400,0]);
+                    x = d3.scaleLog().base(2).domain([10,150]).range([0,400]);
+
+                       d3.select('svg') 
+                       .append("g")
+                          .attr("transform","translate(150,50)")
+                          .selectAll('circle')  
+                          .data(data)
+                          .enter()
+                          .append('circle')
+                            .attr('cx', function(d) {return x(d.AverageCityMPG);})
+                            .attr('cy', function(d) {return y(d.AverageHighwayMPG);})
+                            .attr('r', function(d) {return +d.EngineCylinders + 2;})
+                               
+                    d3.select("svg")
+                        .append("g")
+                            .attr("transform","translate(150,50)")
+                            .call(d3.axisLeft(y).tickValues([10,20,50,100]));
+                    
+                    d3.select("svg")
+                        .append("text")
+                        .attr("class", "y label")
+                        .attr("text-anchor", "end")
+                        .attr("y", 105)
+                        .attr("x", -175)
+                        .attr("dy", ".75em")
+                        .attr("transform", "rotate(-90)")
+                        .text("Avg City MPG");
+
+                    d3.select("svg")
+                        .append("g")
+                            .attr("transform","translate(150,450)")
+                            .call(d3.axisBottom(x).tickValues([10,20,50,100]));
+                    
+                    d3.select("svg")
+                        .append("text")
+                            .attr("class", "x label")
+                            .attr("text-anchor", "end")
+                            .attr("x", 450)
+                            .attr("y", 485)
+                            .text("Avg Highway MPG");
+        }
+        </script>
+   </div>
+
+</body>
+</html>
