@@ -132,13 +132,13 @@
               .data([5,1,4,6,3,3,1,1,1,3,1,4,3,2])
               .enter()
               .append('rect')
-                .attr('x',225)
+                .attr('x',200)
                 .attr('y',function(d,i) {return ys1(i);})
                 .attr('width',function(d,i) {return xs1(d);})
                 .attr('height',15)
                 .style('fill', "grey");
 
-            testName = ["Mercedes-Benz", "MINI", "Mitsubishi", "Nissan", "Porsche", "Ram", "Rolls-Royce", "Roush Performance", "smart", "Subaru", "Tesla", "Toyota", "Volkswagen", "Volvo"]
+            testName = ["Mercedes-Benz", "MINI", "Mitsubishi", "Nissan", "Porsche", "Ram", "Rolls-Royce", "Roush Prfmnce", "smart", "Subaru", "Tesla", "Toyota", "Volkswagen", "Volvo"]
             d3.select('#svg3')
                 .selectAll('text')
                 .data(testName)
