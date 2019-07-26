@@ -41,6 +41,7 @@
 			A distribution of Gas, Electricity and Diesel options provided
 		</p>
         <script src='https://d3js.org/d3.v5.min.js'></script>
+        <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
         <svg width=450 height=300>
         </svg>
         <script>
@@ -58,9 +59,25 @@
                     .enter()
                     .append("path")
                        .attr("d",arc)
-                       .transition().duration(5000)
                        .attr("fill", function(d,i){return color[i];});
-             
+
+                    const annotations = [
+                            {
+                              note: {
+                                label: "You can now hover over any data point to get more details!",
+                                title: "Combined Plot from pages 1 & 2"
+                              },
+                              x: 200,
+                              y: 50,
+                              dx: -50,
+                              dy: 20
+                            }
+                          ]
+                          
+                          d3.select("svg")
+                            .append("g")
+                            .call(d3.annotation().annotations(annotations))
+                                 
         </script>
 
         <svg width=300 height=300 id="svg3"></svg>

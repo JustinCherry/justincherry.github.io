@@ -110,6 +110,17 @@ td
 	border: 1px solid gray;
 }
 
+div.tooltip {	
+        position: absolute;	
+        text-align: right;			
+        width: 250px;					
+        height: 70px;					
+        padding: 2px;					
+        color: blue;	
+        border: 0px;		      		
+        pointer-events: none;			
+      }
+
 @media screen and (max-width:1335px)
 {
 	#right_side a {font-size: 1em}	
