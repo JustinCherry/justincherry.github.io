@@ -42,18 +42,18 @@
 		</p>
         <script src='https://d3js.org/d3.v5.min.js'></script>
         <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
-        <svg width=450 height=300>
+        <svg width=480 height=350>
         </svg>
         <script>
         var data = [6,10,130];
-        var type = ["Electric", "Diesel", "Gasoline"];
+        var type = ["Electricity", "Diesel", "Gasoline"];
         var color = ['green', 'yellow', 'red'];
         var pie = d3.pie();
         var arc = d3.arc().innerRadius(0).outerRadius(100);
 
             d3.select("svg")
                 .append("g")
-                    .attr("transform","translate(350,150)") 
+                    .attr("transform","translate(350,180)") 
                     .selectAll("path")
                     .data(pie(data))
                     .enter()
@@ -64,20 +64,60 @@
                     const annotations = [
                             {
                               note: {
-                                label: "You can now hover over any data point to get more details!",
-                                title: "Combined Plot from pages 1 & 2"
+                                label: "130 Vehicle Models",
+                                title: "Gasoline"
                               },
-                              x: 200,
-                              y: 50,
-                              dx: -50,
+                              x: 275,
+                              y: 200,
+                              dx: -20,
                               dy: 20
                             }
                           ]
-                          
-                          d3.select("svg")
-                            .append("g")
-                            .call(d3.annotation().annotations(annotations))
-                                 
+                      
+                     const makeAnnotations = d3.annotation()
+                       .annotations(annotations)
+                     d3.select("svg")
+                       .append("g")
+                       .call(makeAnnotations)        
+
+                    const annotations1 = [
+                            {
+                              note: {
+                                label: "10 Vehicle Models",
+                                title: "Diesel"
+                              },
+                              x: 300,
+                              y: 100,
+                              dx: -50,
+                              dy: -20
+                            }
+                          ]
+                      
+                     const makeAnnotations1 = d3.annotation()
+                       .annotations(annotations1)
+                     d3.select("svg")
+                       .append("g")
+                       .call(makeAnnotations1)   
+
+                    const annotations2 = [
+                            {
+                              note: {
+                                label: "10 Vehicle Models",
+                                title: "Electricity"
+                              },
+                              x: 340,
+                              y: 100,
+                              dx: 50,
+                              dy: -20
+                            }
+                          ]
+                      
+                     const makeAnnotations2 = d3.annotation()
+                       .annotations(annotations2)
+                     d3.select("svg")
+                       .append("g")
+                       .call(makeAnnotations2)       
+
         </script>
 
         <svg width=300 height=300 id="svg3"></svg>
@@ -86,7 +126,7 @@
             xdomain1 = [0,10];//range of x values being used
             xrange1 = [0,100]; //desired final pixel width
             ydomain1 = [0,13]; //number of elements in range for this example(-1)
-            yrange1 = [50,350]; //desired pixel heights
+            yrange1 = [100,350]; //desired pixel heights
             cdomain1 = [0,10]; //range of values being used
 //            crange1 = ["purple","pink"];
             

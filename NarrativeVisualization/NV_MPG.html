@@ -41,7 +41,7 @@
 		</p>
         <i><b>The Solution:</b></i>
 		<p>
-			A scatter plot of average MPG vs Highway MPG
+			A scatter plot of average MPG vs Highway MPG. Hover over each point for more information.
 		</p>
         <script src='https://d3js.org/d3.v5.min.js'></script>
         <style> circle {fill: lightblue; stroke: black;} </style>
@@ -95,7 +95,6 @@
                           .data(data)
                           .enter()
                           .append('circle')
-                            //.transition().duration(3000)
                             .attr('cx', function(d) {return x(d.AverageCityMPG);})
                             .attr('cy', function(d) {return y(d.AverageHighwayMPG);})
                             //.attr('r', function(d) {return +d.EngineCylinders + 2;})
