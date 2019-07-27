@@ -25,7 +25,8 @@ body a:hover {background-color: #84CEEA;}
 	line-height: 3;	
 }
 
-#left_side ul	{list-style-type: none;}
+#left_side ul {list-style-type: none;}
+
 
 #left_side a {font-size: 1.25em;text-decoration: none; color: white;} 
 
@@ -46,7 +47,7 @@ h1
 { 
 	font-family: Georgia-Serif;
 	padding-top: 20px;
-	height: 110px;
+	height: 90px;
     margin: 0px;
     background-image: url("../pics/resume-banner.jpg");
 	background-size:100% 100%;

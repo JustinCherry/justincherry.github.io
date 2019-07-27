@@ -43,6 +43,7 @@
 		<p>
 			A scatter plot of average MPG vs Highway MPG. Hover over each point for more information.
 		</p>
+        <p>
         <script src='https://d3js.org/d3.v5.min.js'></script>
         <style> circle {fill: lightblue; stroke: black;} </style>
         <body onload='init()'>
@@ -55,7 +56,7 @@
                       .style("opacity", 0);
                     const data = await d3.csv('https://flunky.github.io/cars2017.csv');
                     //console.log(data);
-                    var color = ['green', 'yellow', 'red'];
+                    var color = ['green', 'purple', 'orange'];
 
                     y = d3.scaleLog().base(2).domain([10,150]).range([400,0]);
                     x = d3.scaleLog().base(2).domain([10,150]).range([0,400]);
@@ -115,6 +116,9 @@
                                                 
 }
         </script>
+        </p>
+        <button onclick="window.location.href = 'https://justincherry.github.io/NarrativeVisualization/NV_Fuel';">Prev</button>
+     
    </div>
 
 </body>

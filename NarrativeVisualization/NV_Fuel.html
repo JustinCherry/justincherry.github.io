@@ -40,16 +40,17 @@
 		<p>
 			A distribution of Gas, Electricity and Diesel options provided
 		</p>
-        <script src='https://d3js.org/d3.v5.min.js'></script>
-        <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
-        <svg width=480 height=350>
-        </svg>
-        <script>
-        var data = [6,10,130];
-        var type = ["Electricity", "Diesel", "Gasoline"];
-        var color = ['green', 'yellow', 'red'];
-        var pie = d3.pie();
-        var arc = d3.arc().innerRadius(0).outerRadius(100);
+        <p>
+            <script src='https://d3js.org/d3.v5.min.js'></script>
+            <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
+            <svg width=480 height=350>
+            </svg>
+            <script>
+            var data = [6,10,130];
+            var type = ["Electricity", "Diesel", "Gasoline"];
+            var color = ['green', 'purple', 'orange'];
+            var pie = d3.pie();
+            var arc = d3.arc().innerRadius(0).outerRadius(100);
 
             d3.select("svg")
                 .append("g")
@@ -118,10 +119,10 @@
                        .append("g")
                        .call(makeAnnotations2)       
 
-        </script>
+            </script>
 
-        <svg width=300 height=300 id="svg3"></svg>
-            <script src='https://d3js.org/d3.v5.min.js'></script>
+            <svg width=300 height=300 id="svg3"></svg>
+                <script src='https://d3js.org/d3.v5.min.js'></script>
             <script>
             xdomain1 = [0,10];//range of x values being used
             xrange1 = [0,100]; //desired final pixel width
@@ -157,7 +158,9 @@
                 .attr('font-size', 18)
                 .attr('text-anchor', 'begin');
             </script>
-
+        </p>
+        <button onclick="window.location.href = 'https://justincherry.github.io/NarrativeVisualization/NV_Make';">Prev</button>
+        <button onclick="window.location.href = 'https://justincherry.github.io/NarrativeVisualization/NV_MPG';">Next</button>
    </div>
 
 </body>
